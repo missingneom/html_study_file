@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그라이크 게임</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #output {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>로그라이크 게임</h1>
+    <p id="story">어느 날, 당신은 모험을 떠나기로 결심했습니다.</p>
+    <div id="output"></div>
+
+    <script>
+        let currentScene = 1;
+
+        function showScene(sceneNumber) {
+            switch(sceneNumber) {
+                case 1:
+                    document.getElementById('story').innerHTML = "어느 날, 당신은 모험을 떠나기로 결심했습니다.";
+                    document.getElementById('output').innerHTML = "<button onclick='showScene(2)'>숲으로 가려면 여기를 누르세요.</button>";
+                    break;
+
+                case 2:
+                    document.getElementById('story').innerHTML = "숲에 도착했습니다. 어떤 길을 선택하시겠습니까?";
+                    document.getElementById('output').innerHTML = "<button onclick='showScene(3)'>오른쪽으로 갑니다.</button> <button onclick='showScene(4)'>왼쪽으로 갑니다.</button>";
+                    break;
+
+                case 3:
+                    document.getElementById('story').innerHTML = "오른쪽 길을 선택했습니다. 길은 계속되고 있습니다.";
+                    document.getElementById('output').innerHTML = "<button onclick='showScene(5)'>집으로 돌아가기</button>";
+                    break;
+
+                case 4:
+                    document.getElementById('story').innerHTML = "왼쪽 길을 선택했습니다. 길은 어둡고 신비로워 보입니다.";
+                    document.getElementById('output').innerHTML = "<button onclick='showScene(6)'>더 탐험하기</button> <button onclick='showScene(5)'>집으로 돌아가기</button>";
+                    break;
+
+                case 5:
+                    document.getElementById('story').innerHTML = "당신은 모험을 마치고 집으로 돌아왔습니다. 이야기 끝!";
+                    document.getElementById('output').innerHTML = "";
+                    break;
+
+                case 6:
+                    document.getElementById('story').innerHTML = "더 탐험하기로 결정했습니다. 어떤 일이 벌어질까요?";
+                    document.getElementById('output').innerHTML = "<button onclick='showScene(7)'>신비한 동굴로 들어갑니다.</button> <button onclick='showScene(5)'>집으로 돌아가기</button>";
+                    break;
+
+                case 7:
+                    document.getElementById('story').innerHTML = "동굴 안에서 아름다운 보물을 발견했습니다. 축하합니다!";
+                    document.getElementById('output').innerHTML = "";
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        // 초기 장면 표시
+        showScene(currentScene);
+    </script>
+
+</body>
+</html>
